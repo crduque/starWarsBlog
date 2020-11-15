@@ -6,3 +6,16 @@
     display: flex;
     justify-content: space-between;
 }
+.info {
+    display: flex;
+    text-align: center;
+    flex-flow: column nowrap;
+    h2{
+        margin: 1rem;
+    }
+}
+.more-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 3rem 1rem 3rem;
+}

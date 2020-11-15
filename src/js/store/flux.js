@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			species: [],
+			people: [],
 			favorites: []
 		},
 		actions: {
@@ -18,9 +19,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch();
 			},
+			getPeople: () => {
+				fetch("https://swapi.dev/api/people/")
+					.then(response => {
+						if (!response.ok) {
+							throw new Error("I can't load People!");
+						}
+						return response.json();
+					})
+					.then(jsonPeople => {
+						setStore({ people: jsonPeople.results });
+					})
+					.catch();
+			},
 			setFavorites: eachFavorite => {
-				// if(getStore().favorites != getStore().favorites)
-				setStore({ favorites: [...getStore().favorites, eachFavorite] });
+				if (!getStore().favorites.includes(eachFavorite)) {
+					setStore({ favorites: [...getStore().favorites, eachFavorite] });
+				}
 			}
 		}
 	};
