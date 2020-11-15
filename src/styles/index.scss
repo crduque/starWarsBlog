@@ -1,3 +1,10 @@
+body {
+    background-color: rgb(0, 0, 71);
+    color: #fff207;
+}
+.navbar {
+    background-color: #00000041;
+}
 .navbar-brand{
     width: 70px;
     height: 45px;
@@ -10,6 +17,8 @@
     display: flex;
     text-align: center;
     flex-flow: column nowrap;
+    background-color: #00000041;
+    margin: 1rem;
     h2{
         margin: 1rem;
     }
