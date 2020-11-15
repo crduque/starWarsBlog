@@ -1,0 +1,14 @@
+.card {
+    width: 18rem;
+    min-width: 18rem;
+    margin: 1rem;
+}
+h1 {
+    margin: 1rem;
+}
+.speciesRow {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: fit-content;
+}
