@@ -10,22 +10,26 @@ export const Navbar = () => {
 	};
 
 	useEffect(() => {
-		setListElement(
-			store.favorites.map((eachFavorite, index) => {
-				return (
-					<li key={index} className="dropdown-item">
-						{eachFavorite}
-						<button
-							className="btn btn-danger"
-							onClick={() => {
-								deleteFav(index);
-							}}>
-							Del
-						</button>
-					</li>
-				);
-			})
-		);
+		if (store.favorites.length == 0) {
+			setListElement("Empty");
+		} else {
+			setListElement(
+				store.favorites.map((eachFavorite, index) => {
+					return (
+						<li key={index} className="dropdown-item">
+							{eachFavorite}
+							<button
+								className="btn btn-danger"
+								onClick={() => {
+									deleteFav(index);
+								}}>
+								Del
+							</button>
+						</li>
+					);
+				})
+			);
+		}
 	});
 
 	return (
@@ -38,7 +42,7 @@ export const Navbar = () => {
 			</Link>
 			<div className="dropdown">
 				<button
-					className="btn btn-primary dropdown-toggle"
+					className="btn btn-outline-warning dropdown-toggle"
 					type="button"
 					id="dropdownMenuButton"
 					data-toggle="dropdown"
@@ -46,7 +50,7 @@ export const Navbar = () => {
 					aria-expanded="false">
 					Favorites {store.favorites.length}
 				</button>
-				<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<ul className="dropdown-menu dropdown-menu-lg-right" aria-labelledby="dropdownMenuButton">
 					{listElement}
 				</ul>
 			</div>

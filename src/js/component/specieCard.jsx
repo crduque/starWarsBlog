@@ -21,10 +21,10 @@ export const SpecieCard = props => {
 				</ul>
 				<div className="d-flex justify-content-between mt-2">
 					<Link to={"/species/" + specieTitle}>
-						<button className="btn btn-primary">Show more</button>
+						<button className="btn btn-outline-info">Show more</button>
 					</Link>
 					<button
-						className="btn btn-danger"
+						className="btn btn-outline-danger"
 						onClick={() => {
 							actions.setFavorites(specieTitle);
 							console.log("Array after: ", store.favorites);
